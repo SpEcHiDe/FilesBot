@@ -68,7 +68,7 @@ func start(b ext.Bot, u *gotgbot.Update) error {
 	// log.Println(u.Message.Text)
 	MessageId := get_message_id(u.Message.Text)
 	if MessageId == -1 {
-		const start_message = `Thank you for using me 😬
+		const start_message = `Thank you for using me <a href="https://github.com/PaulSonOfLars/gotgbot">😬</a>
 
 I am inspired from the <a href="https://t.me/SpEcHlDe/943">TamTam RoBot</a>
 
@@ -86,7 +86,7 @@ Subscribe ℹ️ @SpEcHlDe if you ❤️ using this bot!`
 }
 
 func why(b ext.Bot, u *gotgbot.Update) error {
-	const why_message = `https://t.me/BotListCollections/229
+	const why_message = `<a href="https://github.com/PaulSonOfLars/gotgbot">https://t.me/BotListCollections/229</a>
 
 Subscribe ℹ️ @SpEcHlDe if you ❤️ using this bot!`
 	u.EffectiveMessage.ReplyHTML(why_message)
@@ -117,7 +117,8 @@ func incoming_tg_media(b ext.Bot, u *gotgbot.Update) error {
 			strconv.Itoa(fwded_mesg.MessageId) +
 			"_" +
 			"tg"
-		reply_str := "<a href='" +
+		reply_str := "<a href='https://github.com/PaulSonOfLars/gotgbot'>😎</a>\n" +
+			"<a href='" +
 			generated_url +
 			"'>" +
 			"click here to open file " +
