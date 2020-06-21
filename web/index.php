@@ -74,9 +74,7 @@ if (isset($update["message"])) {
             "message_id" => $message_id
         ));
 
-        $my_info = $bot->api->getMe();
-
-        $required_url = "https://t.me/" . $my_info->username . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
+        $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
 
         $bot->api->editMessageText(array(
             "chat_id" => $chat_id,
