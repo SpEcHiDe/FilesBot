@@ -1,1 +1,1 @@
-web: GoFilesBot
+web: vendor/bin/heroku-php-apache2 web/
