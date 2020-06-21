@@ -9,3 +9,4 @@ you can forward me any media message, and I might help you to create a PUBlic li
 Subscribe ℹ️ @SpEcHlDe if you ❤️ using this bot!
 EOM;
 $GLOBALS["CHECKING_MESSAGE"] = "🤔";
+require_once __DIR__ . "/../vendor/autoload.php";
