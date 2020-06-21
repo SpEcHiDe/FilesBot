@@ -58,29 +58,45 @@ if (isset($update["message"])) {
         }
     }
     else {
-        $status_message = $bot->api->sendMessage(array(
-            "chat_id" => $chat_id,
-            "text" => $GLOBALS["CHECKING_MESSAGE"],
-            "parse_mode" => "HTML",
-            "disable_web_page_preview" => True,
-            "disable_notification" => True,
-            "reply_to_message_id" => $message_id
-        ));
-
-        $req_message = $bot->api->forwardMessage(array(
-            "chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
-            "from_chat_id" => $chat_id,
-            "disable_notification" => True,
-            "message_id" => $message_id
-        ));
-
-        $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
-
-        $bot->api->editMessageText(array(
-            "chat_id" => $chat_id,
-            "message_id" => $status_message->message_id,
-            "text" => $required_url,
-            "disable_web_page_preview" => True
-        ));
+        if ($GLOBALS["IS_PUBLIC"] !== FALSE) {
+            get_link($bot, $chat_id, $message_id);
+        }
+        else if (in_array($chat_id, $GLOBALS["TG_AUTH_USERS"])) {
+            get_link($bot, $chat_id, $message_id);
+        }
+        else {
+            $bot->api->deleteMessage(array(
+                "chat_id" => $chat_id,
+                "message_id" => $message_id
+            ));
+        }
     }
+}
+
+
+function get_link($bot, $chat_id, $message_id) {
+    $status_message = $bot->api->sendMessage(array(
+        "chat_id" => $chat_id,
+        "text" => $GLOBALS["CHECKING_MESSAGE"],
+        "parse_mode" => "HTML",
+        "disable_web_page_preview" => True,
+        "disable_notification" => True,
+        "reply_to_message_id" => $message_id
+    ));
+
+    $req_message = $bot->api->forwardMessage(array(
+        "chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
+        "from_chat_id" => $chat_id,
+        "disable_notification" => True,
+        "message_id" => $message_id
+    ));
+
+    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
+
+    $bot->api->editMessageText(array(
+        "chat_id" => $chat_id,
+        "message_id" => $status_message->message_id,
+        "text" => $required_url,
+        "disable_web_page_preview" => True
+    ));
 }

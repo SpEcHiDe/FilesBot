@@ -18,6 +18,10 @@
         },
         "TG_DUMP_CHANNEL_ID": {
             "description": "Telegram Channel ID. Example: -10012374356"
+        },
+        "TG_AUTH_USERS": {
+            "description": "Telegram Users, who can get links using the RoBot",
+            "value": "ALL"
         }
     },
     "formation": {
