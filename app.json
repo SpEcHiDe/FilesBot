@@ -1,0 +1,30 @@
+{
+    "name": "Files Bot",
+    "description": "this app does one little thing, and does it well.",
+    "keywords": [
+        "productivity",
+        "share",
+        "files"
+    ],
+    "website": "https://telesco.pe/SpEcHlDe",
+    "repository": "https://github.com/SpEcHiDe/FilesBot",
+    "success_url": "/",
+    "env": {
+        "TG_BOT_TOKEN": {
+            "description": "your Telegram Bot Token, from @BotFather"
+        },
+        "TG_BOT_USERNAME": {
+            "description": "your Telegram Bot UserName, from @BotFather( without @)"
+        },
+        "TG_DUMP_CHANNEL_ID": {
+            "description": "Telegram Channel ID. Example: -10012374356"
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "image": "heroku/php"
+}
