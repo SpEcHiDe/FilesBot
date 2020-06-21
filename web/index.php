@@ -45,7 +45,6 @@ if (isset($update["message"])) {
                 "chat_id" => $chat_id,
                 "text" => $GLOBALS["START_MESSAGE"],
                 "parse_mode" => "HTML",
-                "disable_web_page_preview" => True,
                 "disable_notification" => True,
                 "reply_to_message_id" => $message_id
             ));
