@@ -20,7 +20,7 @@ if (isset($update["message"])) {
                 $msg_param_s = explode("_", $message_params[1]);
                 $req_message_id = $msg_param_s[1];
                 try {
-                    $bot->api->forwardMessage(array(
+                    $bot->api->copyMessage(array(
                         "chat_id" => $chat_id,
                         "from_chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
                         "disable_notification" => True,
