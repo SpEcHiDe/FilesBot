@@ -9,6 +9,7 @@ use skrtdev\Telegram\{Message, Exception as TelegramException};
 $bot_id = $GLOBALS["TG_BOT_TOKEN"];
 #$bot = new PHPBot($bot_id);
 $Bot = new Bot($bot_id, [
+    "disable_ip_check" => true,
     "parse_mode" => "HTML",
     "disable_notification" => true,
     "disable_web_page_preview" => true,
