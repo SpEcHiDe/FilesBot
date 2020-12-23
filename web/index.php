@@ -49,10 +49,10 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
 $Bot->onMessage(function (Message $message){
     if(!isset($message->text)){
         if ($GLOBALS["IS_PUBLIC"] !== FALSE) {
-            get_link($bot, $chat_id, $message_id);
+            $message->getLink();
         }
         else if (in_array($chat_id, $GLOBALS["TG_AUTH_USERS"])) {
-            get_link($bot, $chat_id, $message_id);
+            $message->getLink();
         }
         else {
             $message->delete();
