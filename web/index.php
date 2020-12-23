@@ -20,7 +20,7 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
     $Bot->debug($args);
-    if(empty($args)){
+    if(empty($args) || $args[0] === ""){
         $message->reply($GLOBALS["START_MESSAGE"]);
     }
     else{
