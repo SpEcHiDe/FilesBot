@@ -15,20 +15,6 @@ $Bot = new Bot($bot_id, [
     "disable_web_page_preview" => true,
 ]);
 
-$Bot->onMessage(function (Message $message){
-    if(!isset($message->text)){
-        if ($GLOBALS["IS_PUBLIC"] !== FALSE) {
-            get_link($bot, $chat_id, $message_id);
-        }
-        else if (in_array($chat_id, $GLOBALS["TG_AUTH_USERS"])) {
-            get_link($bot, $chat_id, $message_id);
-        }
-        else {
-            $message->delete();
-        }
-    }
-});
-
 $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
@@ -52,6 +38,20 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
                  * sometimes, forwarding FAILS 😉
                  */
             }
+        }
+        else {
+            $message->delete();
+        }
+    }
+});
+
+$Bot->onMessage(function (Message $message){
+    if(!isset($message->text)){
+        if ($GLOBALS["IS_PUBLIC"] !== FALSE) {
+            get_link($bot, $chat_id, $message_id);
+        }
+        else if (in_array($chat_id, $GLOBALS["TG_AUTH_USERS"])) {
+            get_link($bot, $chat_id, $message_id);
         }
         else {
             $message->delete();
