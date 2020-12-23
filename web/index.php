@@ -62,7 +62,7 @@ $Bot->onMessage(function (Message $message){
 
 Message::addMethod("getLink", function (){
     $status_message = $this->reply($GLOBALS["CHECKING_MESSAGE"]);
-    $req_message = $message->forward($GLOBALS["TG_DUMP_CHANNEL_ID"]);
+    $req_message = $this->forward($GLOBALS["TG_DUMP_CHANNEL_ID"]);
     $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
     $status_message->editText($required_url);
 });
