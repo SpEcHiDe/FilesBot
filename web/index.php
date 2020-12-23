@@ -13,18 +13,19 @@ $Bot = new Bot($bot_id, [
     "parse_mode" => "HTML",
     "disable_notification" => true,
     "disable_web_page_preview" => true,
+    "debug" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
 ]);
 
 $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
+    $Bot->debug($args)
     if(empty($args)){
         $message->reply($GLOBALS["START_MESSAGE"]);
     }
     else{
-        $message_params = $args;
-        if (strpos($message_params[1], "_") !== FALSE) {
-            $msg_param_s = explode("_", $message_params[1]);
+        if (strpos($args[0], "_") !== FALSE) {
+            $msg_param_s = explode("_", $args[0]);
             $req_message_id = $msg_param_s[1];
             try {
                 $Bot->copyMessage([
