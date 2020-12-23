@@ -1,5 +1,5 @@
 {
     "require": {
-        "kyle2142/phpbot": "^0.7.1"
+        "skrtdev/novagram": "^1.8"
     }
 }
