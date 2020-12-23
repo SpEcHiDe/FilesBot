@@ -19,7 +19,7 @@ $Bot = new Bot($bot_id, [
 $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
-    $Bot->debug($args)
+    $Bot->debug($args);
     if(empty($args)){
         $message->reply($GLOBALS["START_MESSAGE"]);
     }
