@@ -19,7 +19,6 @@ $Bot = new Bot($bot_id, [
 $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
-    $Bot->debug($args);
     if(empty($args) || $args[0] === ""){
         $message->reply($GLOBALS["START_MESSAGE"]);
     }
@@ -67,22 +66,3 @@ Message::addMethod("getLink", function (){
     $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
     $status_message->editText($required_url);
 });
-
-function get_link($bot, $chat_id, $message_id) {
-
-    $req_message = $bot->api->forwardMessage(array(
-        "chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
-        "from_chat_id" => $chat_id,
-        "disable_notification" => True,
-        "message_id" => $message_id
-    ));
-
-    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
-
-    $bot->api->editMessageText(array(
-        "chat_id" => $chat_id,
-        "message_id" => $status_message->message_id,
-        "text" => $required_url,
-        "disable_web_page_preview" => True
-    ));
-}
