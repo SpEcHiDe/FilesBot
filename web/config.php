@@ -22,7 +22,7 @@ else {
 }
 
 $GLOBALS["START_MESSAGE"] = <<<EOM
-Thank you for using me <a href="https://github.com/SpEcHiDe/FilesBot">😬</a>
+Thank you for using me <a href="https://github.com/skrtdev/FilesBot">😬</a>
 
 <u><b>you can forward me any media message</b></u>, and <b><i>I might help you to create a PUBlic link</i></b>.
 
