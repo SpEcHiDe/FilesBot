@@ -1,14 +1,10 @@
 <?php
 require_once __DIR__ . "/config.php";
 
-
 use skrtdev\NovaGram\Bot;
 use skrtdev\Telegram\{Message, Exception as TelegramException};
 
-// Set the bot TOKEN
-$bot_id = $GLOBALS["TG_BOT_TOKEN"];
-#$bot = new PHPBot($bot_id);
-$Bot = new Bot($bot_id, [
+$Bot = new Bot($GLOBALS["TG_BOT_TOKEN"], [
     "disable_ip_check" => true,
     "parse_mode" => "HTML",
     "disable_notification" => true,
@@ -27,8 +23,7 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
             $msg_param_s = explode("_", $args[0]);
             $req_message_id = $msg_param_s[1];
             try {
-                $Bot->copyMessage([
-                    "chat_id" => $chat->id,
+                $chat->copyMessage([
                     "from_chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
                     "message_id" => $req_message_id
                 ]);
@@ -63,6 +58,6 @@ $Bot->onMessage(function (Message $message){
 Message::addMethod("getLink", function (){
     $status_message = $this->reply($GLOBALS["CHECKING_MESSAGE"]);
     $req_message = $this->forward($GLOBALS["TG_DUMP_CHANNEL_ID"]);
-    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view" . "_" . $req_message->message_id . "_" . "tg";
+    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view_{$req_message->message_id}_tg";
     $status_message->editText($required_url);
 });
