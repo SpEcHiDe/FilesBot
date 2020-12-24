@@ -1,5 +1,5 @@
 {
     "require": {
-        "skrtdev/novagram": "dev-master"
+        "skrtdev/novagram": "^1.8"
     }
 }
