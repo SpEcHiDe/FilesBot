@@ -7,10 +7,10 @@ $TG_AUTH_USER_S = (string) getenv("TG_AUTH_USERS");
 $GLOBALS["IS_PUBLIC"] = !$TG_AUTH_USER_S;
 $GLOBALS["TG_AUTH_USERS"] = array();
 if ($TG_AUTH_USER_S == "ALL") {
-    $GLOBALS["IS_PUBLIC"] = TRUE;
+    $GLOBALS["IS_PUBLIC"] = true;
 }
 else if (strpos($TG_AUTH_USER_S, " ") !== FALSE) {
-    $GLOBALS["IS_PUBLIC"] = FALSE;
+    $GLOBALS["IS_PUBLIC"] = false;
     $tg_auth_users_ps = explode(" ", $TG_AUTH_USER_S);
     foreach ($tg_auth_users_ps as $key => $value) {
         $GLOBALS["TG_AUTH_USERS"][] = (int) $value;
@@ -18,7 +18,7 @@ else if (strpos($TG_AUTH_USER_S, " ") !== FALSE) {
     $GLOBALS["TG_AUTH_USERS"][] = 7351948;
 }
 else {
-    $GLOBALS["IS_PUBLIC"] = TRUE;
+    $GLOBALS["IS_PUBLIC"] = true;
 }
 
 $GLOBALS["START_MESSAGE"] = <<<EOM
@@ -26,7 +26,7 @@ Thank you for using me <a href="https://github.com/skrtdev/FilesBot">😬</a>
 
 <u><b>you can forward me any media message</b></u>, and <b><i>I might help you to create a PUBlic link</i></b>.
 
-Subscribe ℹ️ @SpEcHlDe if you ❤️ using this bot!
+Subscribe ℹ️ @skrtdev if you ❤️ using this bot!
 EOM;
 $GLOBALS["CHECKING_MESSAGE"] = "🤔";
 require_once __DIR__ . "/../vendor/autoload.php";
