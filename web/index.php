@@ -25,7 +25,8 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
             try {
                 $chat->copyMessage([
                     "from_chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
-                    "message_id" => $req_message_id
+                    "message_id" => $req_message_id,
+                    "reply_to_message_id" => $message->message_id
                 ]);
             }
             catch (TelegramException $e) {
