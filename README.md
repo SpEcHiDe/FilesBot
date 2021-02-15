@@ -1,4 +1,5 @@
 # FiIesBot
+Powerful bot for file sharing witi any database
 
 - can be found on 👉 [Telegram](https://telegram.dog/GoFiIesBot) 👈
 
@@ -11,6 +12,9 @@
 ### The Easy Way
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+- Important Step: 
+  -Change webhook of telegram bot `https://api.telegram.org/bot<your-bot-token>/setWebhook?url=https://<yourappname>.herokuapp.com/`
 
 ### The Variables
 
