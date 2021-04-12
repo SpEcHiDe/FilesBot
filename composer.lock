@@ -154,16 +154,16 @@
         },
         {
             "name": "skrtdev/async",
-            "version": "v0.7",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skrtdev/php-async.git",
-                "reference": "0475cad32cdb458403b1289d12047b55599648ac"
+                "reference": "463b22661334a99c58a792d12725c29ee297b129"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skrtdev/php-async/zipball/0475cad32cdb458403b1289d12047b55599648ac",
-                "reference": "0475cad32cdb458403b1289d12047b55599648ac",
+                "url": "https://api.github.com/repos/skrtdev/php-async/zipball/463b22661334a99c58a792d12725c29ee297b129",
+                "reference": "463b22661334a99c58a792d12725c29ee297b129",
                 "shasum": ""
             },
             "require": {
@@ -173,7 +173,11 @@
             "autoload": {
                 "psr-4": {
                     "skrtdev\\async\\": "src/"
-                }
+                },
+                "files": [
+                    "src/range.php",
+                    "src/helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -188,22 +192,22 @@
             ],
             "support": {
                 "issues": "https://github.com/skrtdev/php-async/issues",
-                "source": "https://github.com/skrtdev/php-async/tree/v0.7"
+                "source": "https://github.com/skrtdev/php-async/tree/v1.1"
             },
-            "time": "2020-12-21T16:45:39+00:00"
+            "time": "2021-03-29T14:55:52+00:00"
         },
         {
             "name": "skrtdev/novagram",
-            "version": "v1.8",
+            "version": "v1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/skrtdev/NovaGram.git",
-                "reference": "b9d2edb25b8c164786f10140d6e7700fac50b3a1"
+                "reference": "fb2b73ddb60a20e6440d4329af139cda20152d26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/skrtdev/NovaGram/zipball/b9d2edb25b8c164786f10140d6e7700fac50b3a1",
-                "reference": "b9d2edb25b8c164786f10140d6e7700fac50b3a1",
+                "url": "https://api.github.com/repos/skrtdev/NovaGram/zipball/fb2b73ddb60a20e6440d4329af139cda20152d26",
+                "reference": "fb2b73ddb60a20e6440d4329af139cda20152d26",
                 "shasum": ""
             },
             "require": {
@@ -211,7 +215,7 @@
                 "ext-json": "*",
                 "monolog/monolog": "^2.1",
                 "php": ">=7.4",
-                "skrtdev/async": "~0.6"
+                "skrtdev/async": "^1.0"
             },
             "suggest": {
                 "ext-mbstring": "Needed to use the built-in Telegram Entites Parser",
@@ -225,13 +229,13 @@
                         "src/Telegram/Types",
                         "src/Telegram/Exceptions"
                     ],
-                    "skrtdev\\NovaGram\\": "src/dc",
                     "skrtdev\\": "src/"
                 },
                 "classmap": [
-                    "src/bc",
-                    "src/traits",
-                    "src/NovaGram/parser.php"
+                    "src/bc"
+                ],
+                "files": [
+                    "src/NovaGram/helpers.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -248,9 +252,9 @@
             "description": "An Object-Oriented PHP Library for Telegram Bots",
             "support": {
                 "issues": "https://github.com/skrtdev/NovaGram/issues",
-                "source": "https://github.com/skrtdev/NovaGram/tree/v1.8"
+                "source": "https://github.com/skrtdev/NovaGram/tree/v1.9"
             },
-            "time": "2020-12-09T17:16:47+00:00"
+            "time": "2021-04-08T10:33:02+00:00"
         }
     ],
     "packages-dev": [],
