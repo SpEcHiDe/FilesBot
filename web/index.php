@@ -9,14 +9,14 @@ $Bot = new Bot($GLOBALS["TG_BOT_TOKEN"], [
     "parse_mode" => "HTML",
     "disable_notification" => true,
     "disable_web_page_preview" => true,
-    "debug" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
+    "debug" => (int) $GLOBALS["TG_DUMP_CHANNEL_ID"],
 ]);
 
 $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
     $chat = $message->chat;
 
     if(empty($args) || $args[0] === ""){
-        $message->reply($GLOBALS["START_MESSAGE"]);
+        $message->reply($GLOBALS["START_MESSAGE"], true);
     }
     else{
         if (strpos($args[0], "_") !== FALSE) {
@@ -25,9 +25,8 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
             try {
                 $chat->copyMessage([
                     "from_chat_id" => $GLOBALS["TG_DUMP_CHANNEL_ID"],
-                    "message_id" => $req_message_id,
-                    "reply_to_message_id" => $message->message_id
-                ]);
+                    "message_id" => $req_message_id
+                ], true);
             }
             catch (TelegramException $e) {
                 /**
@@ -36,7 +35,7 @@ $Bot->onCommand('start', function(Message $message, array $args) use ($Bot) {
             }
         }
         else {
-            $message->delete();
+            $message->delete(null, true);
         }
     }
 });
@@ -59,6 +58,6 @@ $Bot->onMessage(function (Message $message){
 Message::addMethod("getLink", function (){
     $status_message = $this->reply($GLOBALS["CHECKING_MESSAGE"]);
     $req_message = $this->forward($GLOBALS["TG_DUMP_CHANNEL_ID"]);
-    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=" . "view_{$req_message->message_id}_tg";
+    $required_url = "https://t.me/" . $GLOBALS["TG_BOT_USERNAME"] . "?start=view_{$req_message->message_id}_tg";
     $status_message->editText($required_url);
 });
