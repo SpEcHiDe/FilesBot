@@ -24,9 +24,9 @@ else {
 $GLOBALS["START_MESSAGE"] = <<<EOM
 Thank you for using me <a href="https://github.com/skrtdev/FilesBot">😬</a>
 
-<u><b>you can forward me any media message</b></u>, and <b><i>I might help you to create a PUBlic link</i></b>.
+<u><b>Hi I'm RG File Bot For any help contact @RG_Anime_Group</i></b>.
 
-Subscribe ℹ️ @skrtdev if you ❤️ using this bot!
+Subscribe ℹ️ @Dub_Anime_in_Hindi if you ❤️ using this bot!
 EOM;
-$GLOBALS["CHECKING_MESSAGE"] = "🤔";
+$GLOBALS["CHECKING_MESSAGE"] = "❤";
 require_once __DIR__ . "/../vendor/autoload.php";
